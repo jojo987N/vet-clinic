@@ -59,6 +59,16 @@ SELECT neutered, MIN(weight_kg) as min, MAX(weight_kg) as max FROM animals GROUP
 
 SELECT neutered, AVG(escape_attempts) FROM animals where date_of_birth BETWEEN '1990-01-01' AND '2000-01-01' GROUP BY neutered;
 
+SELECT name, owners.full_name as owner from animals INNER JOIN owners ON animals.owner_id=owners.id WHERE owners.full_name = 'Melody Pond' ;
 
+SELECT animals.name, species.name as specy from animals INNER JOIN species ON animals.species_id=species.id WHERE species.name = 'Pokemon' ;
 
+SELECT name as animal, owners.full_name as owners from animals RIGHT JOIN owners ON animals.owner_id=owners.id;
 
+SELECT COUNT(*) as count, species.name as specy from animals INNER JOIN species ON animals.species_id=species.id GROUP BY species.name;
+
+SELECT species.name as species,animals.name as animal, owners.full_name as owner from animals JOIN owners ON animals.owner_id=owners.id JOIN species ON animals.species_id=species.id WHERE owners.full_name = 'Jennifer Orwell' and species.name = 'Digimon';
+
+SELECT * from animals JOIN owners ON animals.owner_id=owners.id WHERE owners.full_name = 'Dean Winchester' and escape_attempts = 0;
+
+SELECT owners.full_name, COUNT(*) as count from animals JOIN owners ON animals.owner_id=owners.id GROUP BY owners.full_name ORDER BY count DESC LIMIT 1;
