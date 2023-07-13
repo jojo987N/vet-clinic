@@ -67,7 +67,7 @@ SELECT name as animal, owners.full_name as owners from animals RIGHT JOIN owners
 
 SELECT COUNT(*) as count, species.name as specy from animals INNER JOIN species ON animals.species_id=species.id GROUP BY species.name;
 
-SELECT species.name as species,animals.name as animal, owners.full_name as owner from animals JOIN owners ON animals.owner_id=owners.id JOIN species ON animals.species_id=species.id WHERE owners.full_name = 'Jennifer Orwell';
+SELECT species.name as species,animals.name as animal, owners.full_name as owner from animals JOIN owners ON animals.owner_id=owners.id JOIN species ON animals.species_id=species.id WHERE owners.full_name = 'Jennifer Orwell' and species.name = 'Digimon';
 
 SELECT * from animals JOIN owners ON animals.owner_id=owners.id WHERE owners.full_name = 'Dean Winchester' and escape_attempts = 0;
 
