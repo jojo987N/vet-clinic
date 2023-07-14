@@ -84,7 +84,7 @@ SELECT animals.name as "animal name", vets.name as "vet name", visits.date_of_vi
 
 SELECT COUNT(*) as "nb visits", animals.name as "animal name" from visits JOIN animals ON animals.id=visits.animals_id GROUP BY animals.name ORDER BY "nb visits" DESC LIMIT 1;
 
-SELECT vets.name as "vet name", animals.name as "animal name", visits.date_of_visit from visits JOIN animals ON animals.id=visits.animals_id JOIN vets ON vets.id=visits.vets_id WHERE vets.name = 'Maisy Smith' ORDER BY visits.date_of_visit DESC LIMIT 1;
+SELECT vets.name as "vet name", animals.name as "animal name", visits.date_of_visit from visits JOIN animals ON animals.id=visits.animals_id JOIN vets ON vets.id=visits.vets_id ORDER BY visits.date_of_visit DESC LIMIT 1;
 
 SELECT COUNT(*) from visits LEFT JOIN specializations ON visits.vets_id = specializations.vets_id JOIN animals ON visits.animals_id = animals.id WHERE animals.species_id <> specializations.species_id;
 
